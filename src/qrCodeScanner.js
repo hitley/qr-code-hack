@@ -1,6 +1,6 @@
 const localQrcode = window.qrcode;
 
-const video = document.createElement("video");
+const video = document.getElementById("qr-video");
 const canvasElement = document.getElementById("qr-canvas");
 const canvas = canvasElement.getContext("2d");
 
@@ -33,14 +33,10 @@ localQrcode.callback = (res) => {
       qrResult.hidden = true;
       btnScanQR.hidden = true;
       canvasElement.hidden = false;
-      video.setAttribute("playsinline", ""); // required to tell iOS safari we don't want fullscreen
-
-      // <video id="qr-video" playsinline="" disablepictureinpicture="" style="transform: scaleX(-1);"></video>
+      // video.setAttribute("playsinline", ""); // required to tell iOS safari we don't want fullscreen
 
       video.srcObject = stream;
       
-      video.play();
-      video.pause();
       video.play();
       tick();
       scan();
