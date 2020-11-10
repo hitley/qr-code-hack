@@ -35,7 +35,12 @@ localQrcode.callback = (res) => {
       canvasElement.hidden = false;
       video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
       video.srcObject = stream;
-      video.play();
+      setTimeout(function() {
+        //your code to be executed after 1 second
+        video.play();
+      }, 5000);
+      
+   
       tick();
       scan();
     });

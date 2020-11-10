@@ -2,32 +2,26 @@
 
 <head>
     <!-- <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" /> -->
-    <script src="src/html5-qrcode.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
 </head>
 
 <body>
-    <div style="width: 500px" id="reader"></div>
+    <div id="container">
+        <h1>QR Code Scanner</h1>
 
-    <div id="qr-result" hidden="">
-        <b>Data:</b> <span id="outputData"></span>
+        <a id="btn-scan-qr">
+            <img src="https://uploads.sitepoint.com/wp-content/uploads/2017/07/1499401426qr_icon.svg">
+        </a>
+
+        <canvas hidden="" id="qr-canvas"></canvas>
+
+        <div id="qr-result" hidden="">
+            <b>Data:</b> <span id="outputData"></span>
+        </div>
     </div>
 
-    <script>
-        function onScanSuccess(qrCodeMessage) {
-            // handle on success condition with the decoded message
-            if (qrCodeMessage) {
-                outputData.innerText = qrCodeMessage;
-            }
-
-            html5QrcodeScanner.clear();
-            // ^ this will stop the scanner (video feed) and clear the scan area.
-        }
-
-        var html5QrcodeScanner = new Html5QrcodeScanner(
-            "reader", { fps: 10, qrbox: 250 });
-        html5QrcodeScanner.render(onScanSuccess);
-
-    </script>
+    <script src="./src/qrCodeScanner.js"></script>
 </body>
 
 </html>
