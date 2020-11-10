@@ -33,8 +33,8 @@ localQrcode.callback = (res) => {
       qrResult.hidden = true;
       btnScanQR.hidden = true;
       canvasElement.hidden = false;
-      // video.setAttribute("playsinline", ""); // required to tell iOS safari we don't want fullscreen
-
+      video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+      video.setAttribute('controls', true);
       video.srcObject = stream;
       
       video.play();
